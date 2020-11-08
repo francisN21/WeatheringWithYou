@@ -52,7 +52,6 @@ function showError(error){
 // API fetch
 function getWeather(latitude, longitude){
     let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
-    
     fetch(api)
         .then(function(response){
             let data = response.json();
@@ -68,12 +67,13 @@ function getWeather(latitude, longitude){
             weather.windspeed = data.wind.speed;
             weather.city = data.name;
             weather.country = data.sys.country;
-            
+            console.log(data.name);
         })
         // function that outputs the data to the user
         .then(function(){
             
             displayWeather();
+            displayForecast()
         });
 };
 // converts celsius to fahrenheit
@@ -88,4 +88,6 @@ function displayWeather(){
     tempCEl.innerHTML = `${weather.temperature.value}°C`;
     tempFEl.innerHTML = `${fahrenheit}°F`;
     locationEl.innerHTML = `${weather.city}, ${weather.country}`;
+    
 }
+console.log(weather.city);

@@ -34,13 +34,9 @@ fetch(apisearch)
     .then(function(){
         
         displayWeather();
+        displayForecast()
         notifEl.innerHTML = `<div class="alert alert-success" role="alert"> Success! </div>`;
     })
-
-    
-
-    console.log(userLocation);
-    console.log(response);
 });
 
 
