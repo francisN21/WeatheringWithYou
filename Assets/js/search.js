@@ -11,6 +11,11 @@ searchbutton.addEventListener('click', function (e) {
 fetch(apisearch)
     .then(function(response){
         let data = response.json();
+        console.log(response.status)
+        if (response.status !== 200) {
+            // Place the response.status on the page.
+            notifEl.innerHTML = `<div class="alert alert-danger" role="alert">"Please provide location"</div>`;
+          }
         return data;
 
     })
@@ -29,9 +34,13 @@ fetch(apisearch)
     .then(function(){
         
         displayWeather();
-    });
+        notifEl.innerHTML = `<div class="alert alert-success" role="alert"> Success! </div>`;
+    })
+
+    
 
     console.log(userLocation);
+    console.log(response);
 });
 
 
