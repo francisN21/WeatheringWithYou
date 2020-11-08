@@ -1,5 +1,5 @@
 function displayForecast(){
-    let apiforecast = `http://api.openweathermap.org/data/2.5/forecast?q=${weather.city}&appid=${apikey}`;
+    let apiforecast = `https://api.openweathermap.org/data/2.5/forecast?q=${weather.city}&appid=${apikey}`;
     
 fetch(apiforecast)
     .then(function(responseF){

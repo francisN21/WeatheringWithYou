@@ -6,7 +6,7 @@ searchbutton.addEventListener('click', function (e) {
     e.preventDefault();
     let userLocation = inputEl.value;
 
-    let apisearch = `http://api.openweathermap.org/data/2.5/weather?q=${userLocation}&appid=${apikey}`;
+    let apisearch = `https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&appid=${apikey}`;
     
 fetch(apisearch)
     .then(function(response){
