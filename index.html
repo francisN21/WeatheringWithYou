@@ -3,32 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weathering with you!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="./Assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bd-navbar">
+    <a class="navbar-brand" href="./index.html">
+        <img src="https://icons.iconarchive.com/icons/alex-t/fresh-fruit/512/watermelon-icon.png" width="30" height="30" alt="icon" loading="lazy">
+        Francisco Rones</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">About</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="./portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+      </ul>
+      <img src="https://icons.iconarchive.com/icons/alex-t/fresh-fruit/512/watermelon-icon.png" width="30" height="30" alt="icon" loading="lazy">
+    </div>
+  </nav>
+  <!-- nav ends here -->
+
   <header>
-    <h1 class="dashboard">Weather Dashboard</h1>
-    <h3 class="notification"></h3>
+    <div class="container-md c1">
+      <h1 class="dashboard">Weather Dashboard</h1>
+      <div class="notification"></div>
+    </div>
   </header>
-  <div class="container">
+
+  <div class="container-lg-12 c1">
+     <div class="row">
+      <div class="col-lg-2 c3">
+        <div class="main">
+          <h3>Search City or Zip Code:</h3>
+          <!-- search function -->
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Type in city name or zip" aria-label="Search" id="userInput">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
+          </form>
+
+        </div>
+      </div>
+      <!-- Div separator -->
+      <div class="col-sm-1">
+        <!-- empty div for separation -->
+      </div>
       <!-- Main weather data output  -->
-  <div class="main">
-    <h3 class="location">City<span class="date">date</span> </h3>
-    <span class="weather-icon"></span>
-    <p class="wDescription"></p>
-    <p>Temperature: <span class="tempC">°c</span>/ <span class="tempF">°f</span></p>
-    <p>Humidity: <span class="humid">%</span></p>
-    <p>Wind Speed: <span class="wind">mph</span></p>
-    <p>UV Index: <span class="uvI"></span></p>
+      <div class="col-lg-4 c2">
+        <div class="main">
+          <h3 class="location">City<span class="date">date</span> </h3>
+          <span class="weather-icon"></span>
+          <p class="wDescription"></p>
+          <p>Temperature: <span class="tempC">°c</span>/ <span class="tempF">°f</span></p>
+          <p>Humidity: <span class="humid">%</span></p>
+          <p>Wind Speed: <span class="wind">mph</span></p>
+          <p>UV Index: <span class="uvI"></span></p>
+        </div>
+      </div>
+     </div>
+     <div class="row">
+        <!-- 5 day forcast section -->
+        <div class="col-sm-4 headerbg">
+          <h3>5-Day Forecast</h3>
+        </div>
+     </div>
+     <!-- 5day forecast tiles -->
+     <div class="row">
+
+
+     </div>
   </div>
+
+    
   <!-- sub weather data output -->
-  <div>
-    <h3>5-Day Forecast</h3>
 
-  </div>
-  </div>
-
+  <footer class="footer">
+    <div class="container">
+        <span class="text-muted">Copyright 2020 Francisco Rones</span>
+    </div>
+  </footer>
 <script src="./Assets/js/app.js"></script>
+<script src="./Assets/js/search.js"></script>
 </body>
 </html>

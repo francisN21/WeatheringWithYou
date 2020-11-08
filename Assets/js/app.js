@@ -9,7 +9,6 @@ let windEl = document.querySelector(".wind");
 let iconEl = document.querySelector(".weather-icon");
 let uviEl = document.querySelector(".uvI");
 let descEl = document.querySelector(".wDescription");
-
 let notifEl = document.querySelector(".notification");
 
 let weather = {};
@@ -24,13 +23,17 @@ const kelvin = 273;
 // apikey
 const apikey = "f30f2c88528cfea05fe2a5d9ec741999";
 
+
+
 // check if user's browser supports geolocation
 if('geolocation' in navigator){
     navigator.geolocation.getCurrentPosition(setPosition, showError);
 }else{
     notifEl.style.display = "block";
-    notifEl.innerHTML = "Browser doesn't Support Geolocation: Please provide location";
+    notifEl.innerHTML = `<div class="alert alert-danger" role="alert">"Browser doesn't Support Geolocation: Please provide location"</div>`;
 }
+
+
 
 // user location
 function setPosition(position){
@@ -43,7 +46,7 @@ function setPosition(position){
 // shows error if there's error with user's geolocation
 function showError(error){
     notifEl.style.display = "block";
-    notifEl.innerHTML = `<p> ${error.message} </p>`;
+    notifEl.innerHTML = `<div class="alert alert-danger" role="alert"> ${error.message} </div>`;
 }
 
 // API fetch
