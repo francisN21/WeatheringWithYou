@@ -52,6 +52,7 @@ function showError(error){
 // API fetch
 function getWeather(latitude, longitude){
     let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
+    let apiUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apikey}`;
     fetch(api)
         .then(function(response){
             let data = response.json();
@@ -59,7 +60,7 @@ function getWeather(latitude, longitude){
 
         })
         .then(function(data){
-            console.log(data);
+            // console.log(data);
             weather.temperature.value = Math.floor(data.main.temp - kelvin);
             weather.description = data.weather[0].description;
             weather.iconId = data.weather[0].icon;
@@ -67,17 +68,32 @@ function getWeather(latitude, longitude){
             weather.windspeed = data.wind.speed;
             weather.city = data.name;
             weather.country = data.sys.country;
-            console.log(data.name);
+            // console.log(data.name);
         })
         // function that outputs the data to the user
         .then(function(){
             
             displayWeather();
-            displayForecast()
-        });
+            displayForecast();
+        })
+        .then(function(){}(
+        fetch(apiUvi)
+         .then(function(response){
+            let data = response.json();
+            console.log(response);
+            return data;
+
+        })
+        .then(function(data){
+            console.log(data)
+        })
+        // .then(Funtion(){
+
+        // })
+        )
+        )
 };
 // converts celsius to fahrenheit
-
 // DISPLAY WEATHER TO UI
 function displayWeather(){
     let fahrenheit = (weather.temperature.value * 9/5) + 32;
@@ -88,6 +104,12 @@ function displayWeather(){
     tempCEl.innerHTML = `${weather.temperature.value}°C`;
     tempFEl.innerHTML = `${fahrenheit}°F`;
     locationEl.innerHTML = `${weather.city}, ${weather.country}`;
-    
-}
-console.log(weather.city);
+    uviEl.innerHTML = ``;
+};
+
+// fetch(apiForecast)
+// .then(function(response){
+//     let data = response.json();
+//     return data;
+//     console.log(data)
+// })
