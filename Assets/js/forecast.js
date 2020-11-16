@@ -40,13 +40,10 @@ function displayForecast(){
     
 fetch(apiforecast)
     .then(function(responseF){
-
         let dataF = responseF.json();
-        console.log(responseF)
         return dataF;
     })
     .then(function(dataF){
-        console.log(dataF);
         weather.dayA = dataF.list[3].dt_txt;
         weather.icon1 = dataF.list[3].weather[0].icon;
         weather.temp1 = Math.floor(dataF.list[3].main.temp - kelvin);

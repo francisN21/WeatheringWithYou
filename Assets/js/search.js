@@ -2,14 +2,13 @@
 let inputEl = document.getElementById('userInput');
 let searchbutton = document.getElementById('searchBtn');
 
+
 searchbutton.addEventListener('click', function (e) {
     e.preventDefault();
     let userLocation = inputEl.value;
 
     let apisearch = `https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&appid=${apikey}`;
     
-
-
 fetch(apisearch)
     .then(function(response){
         let data = response.json();
@@ -18,11 +17,15 @@ fetch(apisearch)
             // Place the response.status on the page.
             notifEl.innerHTML = `<div class="alert alert-danger" role="alert">"Please provide a VALID location"</div>`;
           }
+          else{
+            localStorage.setItem("search", JSON.stringify(inputEl.value));
+            let searchHistory = JSON.parse(localStorage.getItem("search"));
+            console.log(searchHistory);
+          };
         return data;
 
     })
     .then(function(data){
-        console.log(data);
         weather.temperature.value = Math.floor(data.main.temp - kelvin);
         weather.description = data.weather[0].description;
         weather.iconId = data.weather[0].icon;
@@ -45,14 +48,11 @@ fetch(apisearch)
         (fetch(apiUvi)
         .then(function(response){
            let data = response.json();
-           console.log(response);
            return data;
     
        })
        .then(function(data){
-           console.log(data)
            weather.uvi = data.current.uvi;
-           console.log(weather.uvi);
        })
        .then(function(){
            uviEl.innerHTML = `${weather.uvi}`;

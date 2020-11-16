@@ -76,25 +76,19 @@ function getWeather(latitude, longitude){
             displayWeather();
             displayForecast();
         })
-
         // then fetch for UVI
         .then(function(){}(
         fetch(apiUvi)
          .then(function(response){
             let data = response.json();
-            console.log(response);
             return data;
-
         })
         .then(function(data){
-            console.log(data)
             weather.uvi = data.current.uvi;
-            console.log(weather.uvi);
         })
         .then(function(){
             uviEl.innerHTML = `${weather.uvi}`;
         })
-
     ));
 };
 // converts celsius to fahrenheit
