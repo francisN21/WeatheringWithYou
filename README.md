@@ -7,15 +7,9 @@ You can search for location from all over the world.
 
 ## Demo
 
-```
 
-```
+<img src="./Assets/images/Weathering With You.PNG">
 
-## Acceptance Criteria
-
-```
-
-```
 
 - - -
 © 2020 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
