@@ -34,6 +34,8 @@ if('geolocation' in navigator){
 }
 
 
+cache.innerHTML = JSON.parse(localStorage.getItem("search"));
+
 
 // user location
 function setPosition(position){
