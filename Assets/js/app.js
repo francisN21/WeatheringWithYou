@@ -41,13 +41,13 @@ function setPosition(position){
     let longitude = position.coords.longitude;
     
     getWeather(latitude, longitude);
-}
+};
 
 // shows error if there's error with user's geolocation
 function showError(error){
     notifEl.style.display = "block";
     notifEl.innerHTML = `<div class="alert alert-danger" role="alert"> ${error.message} </div>`;
-}
+};
 
 // API fetch
 function getWeather(latitude, longitude){
@@ -76,6 +76,8 @@ function getWeather(latitude, longitude){
             displayWeather();
             displayForecast();
         })
+
+        // then fetch for UVI
         .then(function(){}(
         fetch(apiUvi)
          .then(function(response){
@@ -86,12 +88,14 @@ function getWeather(latitude, longitude){
         })
         .then(function(data){
             console.log(data)
+            weather.uvi = data.current.uvi;
+            console.log(weather.uvi);
         })
-        // .then(Funtion(){
+        .then(function(){
+            uviEl.innerHTML = `${weather.uvi}`;
+        })
 
-        // })
-        )
-        )
+    ));
 };
 // converts celsius to fahrenheit
 // DISPLAY WEATHER TO UI
@@ -104,12 +108,9 @@ function displayWeather(){
     tempCEl.innerHTML = `${weather.temperature.value}°C`;
     tempFEl.innerHTML = `${fahrenheit}°F`;
     locationEl.innerHTML = `${weather.city}, ${weather.country}`;
-    uviEl.innerHTML = ``;
+
 };
 
-// fetch(apiForecast)
-// .then(function(response){
-//     let data = response.json();
-//     return data;
-//     console.log(data)
-// })
+function toFahrenheit(celsius){
+    return (celsius * 9/5) + 32;
+}

@@ -39,11 +39,19 @@ div {
 .c2{
     background-color: white;
     border-radius: 10px;
-    margin-bottom: 30px;  
+    margin-bottom: 30px;
+    margin-left: 30px;
 }
 .c3{
     background-color: white;
     margin-left: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;  
+}
+.c4{
+    background-color: white;
+    margin-left: 30px;
+    margin-top: 20px;
     border-radius: 10px;
     margin-bottom: 30px;  
 }
