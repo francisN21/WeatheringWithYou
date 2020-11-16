@@ -12,7 +12,7 @@ searchbutton.addEventListener('click', function (e) {
 fetch(apisearch)
     .then(function(response){
         let data = response.json();
-        console.log(response.status)
+        // console.log(response.status)
         if (response.status !== 200) {
             // Place the response.status on the page.
             notifEl.innerHTML = `<div class="alert alert-danger" role="alert">"Please provide a VALID location"</div>`;
@@ -20,6 +20,8 @@ fetch(apisearch)
           else{
             localStorage.setItem("search", JSON.stringify(inputEl.value));
             let searchHistory = JSON.parse(localStorage.getItem("search"));
+            // loads the search history
+            cache.innerHTML = JSON.parse(localStorage.getItem("search"));
             console.log(searchHistory);
           };
         return data;

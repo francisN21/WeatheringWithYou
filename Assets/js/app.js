@@ -33,7 +33,7 @@ if('geolocation' in navigator){
     notifEl.innerHTML = `<div class="alert alert-danger" role="alert">"Browser doesn't Support Geolocation: Please provide location"</div>`;
 }
 
-
+// loads the search history
 cache.innerHTML = JSON.parse(localStorage.getItem("search"));
 
 
