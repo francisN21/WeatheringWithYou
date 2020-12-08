@@ -6,6 +6,8 @@ A useful weather app that uses [OpenWeather API](https://openweathermap.org/api)
 You can search for location from all over the world. 
 Recent search saves to local storage and gets added to a button for user to get back to previous typed location
 
+License under [MIT License](License)
+
 ## Demo
 
 
