@@ -37,7 +37,6 @@ let wind5 = document.querySelector(".wind5");
 
 function displayForecast(){
     let apiforecast = `https://api.openweathermap.org/data/2.5/forecast?q=${weather.city}&appid=${apikey}`;
-    
 fetch(apiforecast)
     .then(function(responseF){
         let dataF = responseF.json();
@@ -85,7 +84,7 @@ fetch(apiforecast)
 // to convert to °F
 function toFahrenheit(celsius){
     return (celsius * 9/5) + 32;
-}
+};
 
 function appendForecast(){
     day1.innerHTML = `${weather.dayA}`;

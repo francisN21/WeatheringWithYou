@@ -1,5 +1,4 @@
 // elements to be used for the code
-
 let locationEl = document.querySelector(".location");
 let dateEl = document.querySelector(".date");
 let tempCEl = document.querySelector(".tempC");
@@ -31,17 +30,15 @@ if('geolocation' in navigator){
 }else{
     notifEl.style.display = "block";
     notifEl.innerHTML = `<div class="alert alert-danger" role="alert">"Browser doesn't Support Geolocation: Please provide location"</div>`;
-}
+};
 
 // loads the search history
 cache.innerHTML = JSON.parse(localStorage.getItem("search"));
-
 
 // user location
 function setPosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    
     getWeather(latitude, longitude);
 };
 
@@ -59,10 +56,8 @@ function getWeather(latitude, longitude){
         .then(function(response){
             let data = response.json();
             return data;
-
         })
         .then(function(data){
-            // console.log(data);
             weather.temperature.value = Math.floor(data.main.temp - kelvin);
             weather.description = data.weather[0].description;
             weather.iconId = data.weather[0].icon;
@@ -70,11 +65,9 @@ function getWeather(latitude, longitude){
             weather.windspeed = data.wind.speed;
             weather.city = data.name;
             weather.country = data.sys.country;
-            // console.log(data.name);
         })
         // function that outputs the data to the user
         .then(function(){
-            
             displayWeather();
             displayForecast();
         })
@@ -104,9 +97,7 @@ function displayWeather(){
     tempCEl.innerHTML = `${weather.temperature.value}°C`;
     tempFEl.innerHTML = `${fahrenheit}°F`;
     locationEl.innerHTML = `${weather.city}, ${weather.country}`;
-
 };
-
 function toFahrenheit(celsius){
     return (celsius * 9/5) + 32;
 }

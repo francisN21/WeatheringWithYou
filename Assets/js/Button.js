@@ -36,7 +36,6 @@ fetch(apisearch)
     .then(function(response){
         let data = response.json();
         return data;
-
     })
     .then(function(data){
         weather.temperature.value = Math.floor(data.main.temp - kelvin);
@@ -48,7 +47,6 @@ fetch(apisearch)
         weather.country = data.sys.country;
         weather.lat = data.coord.lat;
         weather.lon = data.coord.lon;
-
     })
     // function that outputs the data to the user
     .then(function(){
@@ -62,7 +60,6 @@ fetch(apisearch)
         .then(function(response){
            let data = response.json();
            return data;
-    
        })
        .then(function(data){
            weather.uvi = data.current.uvi;
@@ -70,7 +67,5 @@ fetch(apisearch)
        .then(function(){
            uviEl.innerHTML = `${weather.uvi}`;
        }));
-
     });
-
-}
+};

@@ -2,7 +2,6 @@
 let inputEl = document.getElementById('userInput');
 let searchbutton = document.getElementById('searchBtn');
 
-
 searchbutton.addEventListener('click', function (e) {
     e.preventDefault();
     let userLocation = inputEl.value;
@@ -37,7 +36,6 @@ fetch(apisearch)
         weather.country = data.sys.country;
         weather.lat = data.coord.lat;
         weather.lon = data.coord.lon;
-
     })
     // function that outputs the data to the user
     .then(function(){
@@ -59,6 +57,5 @@ fetch(apisearch)
        .then(function(){
            uviEl.innerHTML = `${weather.uvi}`;
        }));
-
     });
 });
